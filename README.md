@@ -1,0 +1,1 @@
+Trying out interacting with Redis from Python.
