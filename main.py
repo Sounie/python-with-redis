@@ -7,14 +7,16 @@ if __name__ == '__main__':
         redisClient = redisContainer.get_client().client()
         before = redisClient.exists("foo")
 
-        print(f"Exist before? {before}")
+        # Doesn't exist before
+        print(f"Exist before? {bool(before)}")
 
         redisClient.set("foo", "bar")
 
         after = redisClient.exists("foo")
 
-        print(f"Exist after? {after}")
+        # Does exist after
+        print(f"Exist after? {bool(after)}")
 
         value = redisClient.get("foo")
 
-        print(f"Value after set {value}")
+        print(f"Value after set: {value.decode()}")
